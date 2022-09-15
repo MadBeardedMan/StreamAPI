@@ -31,7 +31,8 @@ class Main {
         List<Person> workers;
         workers = persons.stream()
                 .filter(value -> Education.HIGHER.equals(value.getEducation()))
-                .filter(value -> (Sex.WOMAN.equals(value.getSex()) && value.getAge() < 60) || (Sex.MAN.equals(value.getSex()) && value.getAge() < 65))
+                .filter(value -> (Sex.WOMAN.equals(value.getSex()) && value.getAge() < 60 && value.getAge() > 18)
+                        || (Sex.MAN.equals(value.getSex()) && value.getAge() < 65 && value.getAge() > 18))
                 .sorted(byFamily)
                 .collect(Collectors.toList());
         System.out.println("Всего трудоспособного населения = " + workers.size());
